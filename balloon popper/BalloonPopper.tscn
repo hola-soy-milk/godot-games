@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1nanh11fkdx5"]
+
+[ext_resource type="Material" uid="uid://5mf38d1aimff" path="res://balloon popper/Balloon.tres" id="1_i81j0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6x8wn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pmkry"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Balloon" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balloon"]
+material_override = ExtResource("1_i81j0")
+mesh = SubResource("SphereMesh_6x8wn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balloon"]
+shape = SubResource("SphereShape3D_pmkry")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.10043)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.968588, 0.153819, -0.195392, 0, 0.785738, 0.618559, 0.248673, -0.599129, 0.761056, 0, 3.51784, 0)
