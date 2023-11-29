@@ -1,21 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1nanh11fkdx5"]
+[gd_scene load_steps=3 format=3 uid="uid://d1nanh11fkdx5"]
 
-[ext_resource type="Material" uid="uid://5mf38d1aimff" path="res://balloon popper/Balloon.tres" id="1_i81j0"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_6x8wn"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_pmkry"]
+[ext_resource type="Script" path="res://balloon popper/BalloonManager.gd" id="1_2nlnb"]
+[ext_resource type="PackedScene" uid="uid://btti32dl5mlo1" path="res://balloon popper/balloon.tscn" id="2_ydouu"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_2nlnb")
 
-[node name="Balloon" type="Area3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Balloon"]
-material_override = ExtResource("1_i81j0")
-mesh = SubResource("SphereMesh_6x8wn")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Balloon"]
-shape = SubResource("SphereShape3D_pmkry")
+[node name="Balloon" parent="." instance=ExtResource("2_ydouu")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.10043)
