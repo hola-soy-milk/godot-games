@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1nanh11fkdx5"]
+[gd_scene load_steps=4 format=3 uid="uid://d1nanh11fkdx5"]
 
 [ext_resource type="Script" path="res://balloon popper/BalloonManager.gd" id="1_2nlnb"]
 [ext_resource type="PackedScene" uid="uid://btti32dl5mlo1" path="res://balloon popper/balloon.tscn" id="2_ydouu"]
 
-[node name="Main" type="Node3D"]
+[sub_resource type="LabelSettings" id="LabelSettings_bwdcp"]
+font_size = 43
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("score_text")]
 script = ExtResource("1_2nlnb")
+score_text = NodePath("Label")
 
 [node name="Balloon" parent="." instance=ExtResource("2_ydouu")]
 
@@ -14,3 +18,11 @@ current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.968588, 0.153819, -0.195392, 0, 0.785738, 0.618559, 0.248673, -0.599129, 0.761056, 0, 3.51784, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 21.0
+offset_right = 239.0
+offset_bottom = 88.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_bwdcp")
